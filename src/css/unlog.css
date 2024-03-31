@@ -1,0 +1,7 @@
+button.unlog {
+    background: none;
+    border: none;
+    color: red;
+    font-weight: 500;
+    text-decoration: underline;
+}

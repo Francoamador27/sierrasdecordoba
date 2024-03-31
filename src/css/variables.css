@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@font-face {
+  font-family: 'Lato';
+  src: url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;700;900&display=swap') format('truetype');
+}
+
+:root {
+    --color-primary: #015089;
+    --color-secondary: #2ecc71;
+    --font-principal: 'Poppins', sans-serif;
+  }
+p{
+    font-family: var(--font-principal);
+  }
+  h1,h2,h3,h4,h5{
+    font-family: var(--font-principal);
+    
+}

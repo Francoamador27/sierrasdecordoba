@@ -1,0 +1,230 @@
+input:focus, select:focus, select, input.form-control:focus {
+
+  outline:none !important;
+
+  outline-width: 0 !important;
+
+  box-shadow: none;
+
+  -moz-box-shadow: none;
+
+  -webkit-box-shadow: none;
+  border: none;
+  border-bottom: 2px solid blue;
+
+}
+input#stock {
+  border: none;
+  border-bottom: 2px solid var(--color-primary);
+}
+body{
+  margin: 0px;
+    background-color: white;
+    min-height: 600px;
+}
+label {
+  font-family: var(--font-principal);
+}
+form{
+  font-family: var(--font-principal);
+}
+input{
+  font-family: var(--font-principal);
+}
+.row {
+  min-height: 430px;
+}
+.spinner-loading{
+  text-align: center;
+}
+.spinner-border.text-primary {
+  width: 150px;
+  height: 150px;
+}
+.principal {
+  min-height: 550px;
+  margin-top: 80px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search.d-flex {
+  padding: 0px;
+  border: none;
+  margin: 0;
+}
+.page-link {
+  margin: 10px 10px;
+  border: none;
+}
+
+.bg-body-tertiary {
+  --bs-bg-opacity: 1;
+  background-color: var(--color-primary) !important;
+}
+
+p{
+  margin: 0px;
+}
+header{
+    margin-bottom: 30px;
+}
+nav{
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+ul {
+    display: inline-flex;
+    margin: 0px;
+  }
+form {
+    border: none;
+    MARGIN-TOP: -30px;
+    padding: 20px;
+    background: white;
+  }
+  .img-film{
+    width: 100%;
+  }
+  .list-genrs {
+    display: block;
+  }
+  .favs-title{
+    display: flex;
+    align-items: center;
+  }
+
+
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 0px 12px;
+    border: none;
+    border-bottom: 1px solid var(--color-primary);
+    border-radius: 4px;
+    resize: vertical;
+  }
+  label {
+    padding: 10px 0px;
+    display: inline-block;
+    width: 100%;
+}
+  input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+  }
+  .inputs-location {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/* EDIT */
+
+input#title {
+  font-size: 28px;
+  font-family: var(--font-principal);
+  border-left: none;
+  border-top: none;
+  border-right: none;
+ 
+}
+input[type="text"]#title:focus {
+  border-bottom: 2px solid blue;
+  font-size: 28px;
+  font-family: var(--font-principal);
+  border-left: none !important;
+  border-top: none !important;
+  border-right: none !important;
+}
+._2c50p {
+  background: white;
+  margin: 0px;
+  border: 1px solid var(--color-primary);
+}._2c50p {
+  margin: 0px !important;
+}
+._3WRGR {
+  stroke: var(--color-primary) !important;
+  stroke-opacity: 1;
+  stroke-width: 1px;
+  fill: var(--color-primary) !important;
+}._19gvi {
+  border: 1px solid var(--color-primary);
+  opacity: 1;
+}
+.image-edit {
+  position: relative;
+  display: inline-block; /* Esto es importante para que el div se ajuste al tamaño de la imagen */
+}
+
+.delete-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px; /* Ajusta el padding según sea necesario */
+  background-color: rgba(255, 0, 0, 0.7); /* Color de fondo del botón */
+  color: #fff; /* Color del texto del botón */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button.addState {
+  background: none;
+  font-family: 'Poppins';
+  font-size: 12px;
+  border: none;
+  margin: 0px 10px;
+  border: 1px solid blue;
+  padding: 10px;
+  border-radius: 10px;
+}
+.button {
+  text-align: center;
+  margin: 10px 0px 0px -15%;
+}
+/* LOGIN  */
+.container-login {
+  text-align: center;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+  min-height: 279px;
+  border-radius: 10px;
+}
+.container-login {
+  text-align: center;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.7);
+  min-height: 279px;
+  border-radius: 10px;
+  max-width: 422px;
+  margin: 0 auto;
+}
+
+.buttons {
+  margin-top: 30px;
+}
+.input-group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+  padding: 15px;
+}
+form.form-log {
+  border-radius: 20px;
+}
+button.btn.btn-primary.btn-aux {
+  background: none;
+  color: black;
+  border: none;
+  text-decoration: underline;
+}

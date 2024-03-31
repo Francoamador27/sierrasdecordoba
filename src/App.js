@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-
+import './css/variables.css'
+import './css/app.css'
+// COMPONENTS
+import Header from './componentes/Header';
+import Footer from './componentes/Footer';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import { useEffect, useState } from 'react';
+import { Rutas } from './componentes/rutas/Rutas';
 function App() {
+
+  const [favs, setFavs] = useState([]);
+  useEffect(()=>{
+      let favMovies = localStorage.getItem('favs');
+      if(favMovies != null){
+          favMovies =JSON.parse(favMovies)
+          setFavs(favMovies)
+      }
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header favs={favs} />
+        <div className='container principal'>
+            <Rutas />
+        </div>
+      <Footer/>
+    </>
   );
 }
 
