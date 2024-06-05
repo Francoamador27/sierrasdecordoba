@@ -97,3 +97,9 @@ border-bottom: 1px solid var(--color-primary);
   background: none;
   border: none;
 }
+.swiper-slide.card-home {
+  max-width: 375px;
+}
+.cards-show .card {
+  max-width: 266px;
+}

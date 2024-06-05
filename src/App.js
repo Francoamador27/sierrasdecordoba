@@ -9,21 +9,25 @@ import { Rutas } from './componentes/rutas/Rutas';
 function App() {
 
   const [favs, setFavs] = useState([]);
-  useEffect(()=>{
-      let favMovies = localStorage.getItem('favs');
-      if(favMovies != null){
-          favMovies =JSON.parse(favMovies)
-          setFavs(favMovies)
-      }
-  },[])
+  useEffect(() => {
+    let favMovies = localStorage.getItem('favs');
+    if (favMovies != null) {
+      favMovies = JSON.parse(favMovies)
+      setFavs(favMovies)
+    }
+  }, [])
 
   return (
     <>
       <Header favs={favs} />
-        <div className='container principal'>
-            <Rutas />
+      <div className='principal'>
+     
+        <div className='rutas'>
+          <Rutas />
         </div>
-      <Footer/>
+      
+      </div>
+      <Footer />
     </>
   );
 }

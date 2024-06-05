@@ -1,5 +1,10 @@
+import { url } from "../endpoint/endpoint"
+
 export const getSession = async (parametro) => {
-    const endPointSession = 'http://localhost:5000/api/sessions/show';
+
+    
+  
+    const endPointSession = `/api/sessions/show`;
     try {
       const response = await fetch(endPointSession, {
         method: 'GET',

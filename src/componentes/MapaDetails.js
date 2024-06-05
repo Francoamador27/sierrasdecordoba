@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 
 export const MapaDetails = (props) => {
   const {location} = props;
+  const {title} = props;
   const {addPosition} = props;
   const [position, setPosition] = useState();
   useEffect(() => {
@@ -16,7 +17,7 @@ export const MapaDetails = (props) => {
         setPosition(newPosition);
       }
     }else{
-      setPosition([-34.5185347,-66.0445747])
+      setPosition([-31.416124768205577,-424.18333053588873])
     }
   }, [location]);
   function ClickEvent({onClick}){
@@ -47,8 +48,7 @@ export const MapaDetails = (props) => {
     />
     <Marker position={position} >
       <Popup>
-        A pretty CSS3 popup. <br /> Easily customizable.
-      </Popup>
+      {title}      </Popup>
     </Marker>
     <ClickEvent onClick={posicion=> posicion}/>
   </MapContainer>

@@ -6,6 +6,7 @@ import L from 'leaflet';
 
 export const MapaItemsDetails = (props) => {
     let {location} = props;
+    let{title} =props;
   const position =[location.lat,location.lng]
   delete L.Icon.Default.prototype._getIconUrl;
   
@@ -24,8 +25,7 @@ export const MapaItemsDetails = (props) => {
     />
     <Marker position={position} >
       <Popup>
-        A pretty CSS3 popup. <br /> Easily customizable.
-      </Popup>
+      {title}      </Popup>
     </Marker>
   </MapContainer>
       </div>

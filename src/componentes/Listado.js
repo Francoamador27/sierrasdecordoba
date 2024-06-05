@@ -1,11 +1,25 @@
-import {  useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Loading } from "./Loading";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../redux/productsSlice";
 import { Card } from "./cards/Card";
-function Listado() {
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import { getAllProducts } from "./utils.js/fetchs/getAllProducts";
+
+function Listado(props) {
+  let params = {};
+  const [products , setProducts] = useState([]);
+  if(props){
+    if(props.category ){
+      params.category = props.category;
+    }
+    if(props.order){
+      params.order = props.order;
+    }
+  }
   const dispatch = useDispatch()
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -13,22 +27,16 @@ function Listado() {
   if (!page) {
     page = '1';
   }
-  const productsList = useSelector((state)=> state.products);
+
   useEffect(() => {
-    const fetchData = async () => {
-      const endPoint = 'http://localhost:5000/api/products?limit=10';
+    const fetchAll = async () => {
       try {
-        const response = await fetch(endPoint, {
-          method: 'GET',
-          credentials: 'include', // Asegúrate de incluir las credenciales
-        });
-        if (!response.ok) {
-          throw new Error(`Error ${response.status}: ${response.statusText}`);
-        }
-        const apiData = await response.json();
-        dispatch(setProducts(apiData.data.products))
+        params.page= page;
+        const data = await getAllProducts(params);
+        // props.onProductsLoaded(data.length > 0);
+
+        setProducts(data);
       } catch (error) {
-        console.error('Error al obtener los productos:', error);
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
@@ -36,22 +44,55 @@ function Listado() {
         });
       }
     };
-    fetchData();
-  }, [dispatch, page]);
-
-
+    fetchAll();
+  }, []);
   return (
     <>
-  {(!productsList || productsList.length === 0) && 
-  <Loading />
-}
-      <div className="row">
-        {productsList.map((oneMovie) => (
-          <>
-     <Card data={oneMovie}/>
-      </>
-        ))}
-      </div>
+      {(!products || products.length === 0) &&
+        <Loading />
+      }
+
+
+      <Swiper
+        loop= "true"
+        breakpoints={{
+          // Cuando el ancho de la pantalla sea igual o mayor a 768px, muestra 2 slides por vista
+          400: {
+            slidesPerView: 1
+          },
+          500: {
+            slidesPerView: 2
+          },
+          850: {
+            slidesPerView: 3
+          },
+          // Cuando el ancho de la pantalla sea igual o mayor a 1024px, muestra 3 slides por vista
+          1024: {
+            slidesPerView: 4
+          }
+        }}
+        spaceBetween={50}
+        centeredSlides={true}
+        pagination={{
+          clickable: true,
+        }}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+
+      >
+
+        <div className="row">
+          {products.map((oneMovie,index) => (
+              <SwiperSlide key={index} className="card-home">
+                <Card data={oneMovie} />
+
+              </SwiperSlide>
+          ))}
+        </div>
+      </Swiper>
+    
 
     </>
   );

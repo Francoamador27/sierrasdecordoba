@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -9,19 +9,18 @@ import { getMyProducts } from "./utils.js/fetchs/getMyproducts";
 import { getSession } from "./utils.js/fetchs/getSession";
 import { addListener } from "@reduxjs/toolkit";
 import { setMyProducts } from "../redux/myproductsSlice";
+import { MenuAdmin } from "./admin/MenuAdmin";
 
-export const Myproducts = ()=>{
+export const Myproducts = () => {
   const dispatch = useDispatch();
-    const session = useSelector((state)=> state.user);
-    const userLogged  = session && session.email !== null && session.email.trim() !== '';
-    const navigate = useNavigate() ;
-    const myProductsList = useSelector((state)=> state.myproducts);
+  const navigate = useNavigate();
+  const [products , setProducts] = useState()
   useEffect(() => {
     const fetchData = async () => {
       try {
         const products = await getMyProducts();
         if (products) {
-          dispatch(setMyProducts(products));
+          setProducts(products);
         } else {
           Swal.fire({
             title: '¡Error!',
@@ -36,41 +35,27 @@ export const Myproducts = ()=>{
       }
     };
     fetchData();
-  }, [ navigate,dispatch]);
-  useEffect(() => {
-    const fetchSession = async () => {
-      try{
-        const session = await getSession();
-        dispatch(addListener(session.user))      
-      } catch (error) {
-          dispatch(cleanUser())
-          navigate("/login")
-      }
-    };
-    fetchSession();
-  }, [dispatch,navigate]);
+  }, [navigate, dispatch]);
+
   return (
+    <section className="logged my-product">
         <>
-        {!userLogged ? (
-    <h2>No tienes acceso a este contenido. Debes crear una cuenta Premium.</h2>
-    ) : (
-    <>
-        {myProductsList ? (
+          {products ? (
             <>
-                <h2>Tienes acceso. Estas son tus publicaciones</h2>
-                <div className="row">
-        {myProductsList.map((prop) => (
-          <>
-       <MyCards data={prop} />
-      </>
-        ))}
-      </div>
+            <MenuAdmin />
+              <h2>Tienes acceso. Estas son tus publicaciones</h2>
+              <div className="row">
+                {products.map((prop, index) => (
+                  <div className='col-12 col-sm-6 col-md-4 col-lg-3 ' key={index}>
+                    <MyCards  data={prop} />
+                  </div>
+                ))}
+              </div>
             </>
-        ) : (
+          ) : (
             <Loading />
-        )}
-    </>
-)}
+          )}
         </>
-    )
+    </section>
+  )
 }

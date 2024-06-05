@@ -63,8 +63,8 @@ export function Register() {
 
   return (
     <>
-      <div className="container-login">
-        <form className="form-log" onSubmit={handleRegister} >
+      <div class="container-login">
+        <form class="form-log" action="" onSubmit={handleRegister} method="post" >
           <h2>Registrarse</h2>
           <div className="input-group mb-3">
             <div className="input-group-append">
@@ -99,7 +99,7 @@ export function Register() {
           <div className="buttons">
             <button type="submit" className="btn btn-primary btn-form">Registrarse</button>
 
-            <button type="button" className="btn btn-primary btn-aux"><Link to={"/login"}>Login </Link></button>
+            <button type="button" className="btn btn-primary btn-aux"><a href="/login">Login </a></button>
           </div>
         </form>
       </div>

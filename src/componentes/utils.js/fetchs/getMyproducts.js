@@ -1,5 +1,7 @@
+import { url } from "../endpoint/endpoint"
+
 export const getMyProducts = async (parametro) => {
-        const endPoint = 'http://localhost:5000/api/products/myProducts?limit=10';
+        const endPoint = `/api/products/myProducts?limit=10`;
         try {
           const response = await fetch(endPoint, {
             method: 'GET',

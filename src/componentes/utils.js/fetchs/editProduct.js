@@ -1,4 +1,7 @@
+import { url } from "../endpoint/endpoint";
+
 const prepareFormData = (formData) => {
+
   const data = new FormData();
   for (const key in formData) {
     if (formData.hasOwnProperty(key) && key !== 'thumbnail') {
@@ -12,16 +15,16 @@ const prepareFormData = (formData) => {
   return data;
 };
 
-export const fetchEdit = async (formData) => {
+export const fetchEdit = async (formData,id) => {
     try {
-      const response = await fetch(`/api/products/${formData._id}` , {
+      console.log("data en el endpoint",prepareFormData(formData))
+            const response = await fetch(`/api/products/${id}` , {
         method: 'PUT',
         body: prepareFormData(formData),
       });
       if (response.ok) {
         const responseData = await response.json(); 
        let data = responseData.product;
-       console.log("data fetch",data)
         return data;
     } else {
           return ;

@@ -1,68 +1,92 @@
 @import 'leaflet/dist/leaflet.css';
-.main-container .image-single {
-    width: calc(50% - 10px);
-    height: 400px;
+section.details-page {
+    padding: 0px 100px;
 }
+.main-container .image-single {
+    height: 500px;
+}
+
 .img-details {
     width: 100%;
     height: 100%;
     object-fit: fill;
 }
 
+.main-container .image-single {
+    width: calc(80% - 10px);
+    text-align: center;
+    height: 700px;
+    object-fit: cover;
+}
+
 .main-container {
-    display: flex;
-    justify-content: flex-start;
+    display: inline-grid;
+    justify-content: initial;
     flex-wrap: wrap;
-    margin: 20px 0px;
+    margin: 20px 20px;
     gap: 68px;
     margin-bottom: 100px;
 }
+
 /* MAPA  */
 .mapa {
     width: 99%;
     height: 500px;
 }
-.leaflet-container{
+
+.leaflet-container {
     height: 98%;
 }
 
-.main-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .image-single,
-  .description-info {
+
+
+.image-single,
+.description-info {
     flex: 1;
-    max-width: 48%; /* Ajusta según tus necesidades */
-  }
-  
-  textarea#description {
+    max-width: 90%;
+    /* Ajusta según tus necesidades */
+}
+
+textarea#description {
     border: 1px solid #b1a9a9;
     min-height: 126px;
 }
+
 select#value {
     WIDTH: 116px;
 }
+
 input#price {
     border: none;
     border-bottom: 1px solid var(--color-primary);
-}input#email-contact {
+}
+
+input#email-contact {
     border: none;
     border-bottom: 1px solid var(--color-primary);
     width: 100%;
 }
+
 input#phonenumber {
     border: none;
     border-bottom: 1px solid var(--color-primary);
     width: 100%;
 }
+
 h5 {
     font-size: 25px;
 }
+
 .descripcion {
-    font-size: 20px;
+    margin: 10px 0px;
+    font-size: 17px;
+    min-height: 150px;
+    font-family: var(--font-principal);
+    border-radius: 0px 38px 0px 40px;
+    padding: 10px;
+}
+.accordion {
+    margin: 20px 0px;
 }
 img.img-thumbnail {
     width: 116px;

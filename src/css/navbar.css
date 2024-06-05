@@ -1,50 +1,66 @@
 span.navbar-brand a {
-    font-family: var(--font-principal);
-    font-weight: 800;
-    text-decoration: none;
-    color: white;
-  }
-  .dropdown-menu.show a {
-    color: black;
-    font-weight: 400;
+  font-family: var(--font-principal);
+  font-weight: 800;
+  text-decoration: none;
+  color: white;
 }
+
+.dropdown-menu.show a {
+  color: black;
+  font-weight: 400;
+}
+
 .dropdown-menu.show {
   display: grid;
 }
+
 button.navbar-toggler.collapsed {
   border: none;
   background: none;
 }
+
 a#basic-nav-dropdown {
-    color: white;
+  color: white;
 }
+
 .me-auto.navbar-nav {
-    display: flex;
-    margin-left: 40px;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  margin-left: 40px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .me-auto.navbar-nav a {
-    color: white;
-    margin: 0px 5px;
-    font-family: var(--font-principal);
-    font-weight: 600;
-    text-decoration: none;
+  font-size: 13px;
+  color: white;
+  margin: 0px 5px;
+  font-family: var(--font-principal);
+  font-weight: 600;
+  text-decoration: none;
 }
+
 a.dropdown-item {
-    color: black !important;
+  color: black !important;
 }
+
 .dropdown-menu.show a {
+  padding: 10px;
   color: black;
+  text-decoration: none;
+}
+.dropdown-menu.show a:hover {
+  padding: 10px;
+  color: white;
+  background-color: var( --color-primary);
   text-decoration: none;
 }
 .navbar-toggler-icon {
 
- 
+
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 
 }
+
 .navbar-toggler:focus {
   outline: none !important;
   text-decoration: none;

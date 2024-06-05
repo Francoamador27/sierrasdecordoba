@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { addUser } from "../redux/userSlice";
 import { Link } from "react-router-dom";
 import { sanitizeEmail, sanitizePassword } from "./utils.js/sanitize";
+import { url } from "./utils.js/endpoint/endpoint";
 
 export const FormLogin = ()=>{
     const dispatch = useDispatch()
@@ -27,7 +28,7 @@ export const FormLogin = ()=>{
             icon: "info",
             title: "logging"
           });
-          const res = await axios.post('http://localhost:5000/auth/login', { email, password }, { withCredentials: true });
+          const res = await axios.post(`/auth/login`, { email, password }, { withCredentials: true });
           if(res.data){
             dispatch(addUser(res.data.user))
             Swal.fire({

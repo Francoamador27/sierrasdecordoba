@@ -1,8 +1,8 @@
 {
-  "name": "alkemy",
+  "name": "sierras-cordoba",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5000",
+  "proxy": "https://productmanager.onrender.com",
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
     "@testing-library/jest-dom": "^5.17.0",
@@ -11,18 +11,24 @@
     "axios": "^1.6.1",
     "bootstrap": "^5.3.2",
     "bootstrap-icons": "^1.11.2",
+    "draft-js": "^0.11.7",
+    "draftjs-to-html": "^0.9.1",
+    "geonames.js": "^3.0.6",
     "leaflet": "^1.9.4",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.1",
     "react-date-range": "^2.0.0-alpha.4",
     "react-dom": "^18.2.0",
+    "react-draft-wysiwyg": "^1.15.0",
     "react-gallery-carousel": "^0.4.0",
     "react-leaflet": "^4.2.1",
     "react-loader-spinner": "^6.1.6",
     "react-redux": "^9.0.4",
     "react-router-dom": "^6.18.0",
     "react-scripts": "5.0.1",
+    "react-switch": "^7.0.0",
     "sweetalert2": "^11.9.0",
+    "swiper": "^11.1.1",
     "uuid": "^9.0.1",
     "validator": "^13.11.0",
     "web-vitals": "^2.1.4"
@@ -50,5 +56,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
 }

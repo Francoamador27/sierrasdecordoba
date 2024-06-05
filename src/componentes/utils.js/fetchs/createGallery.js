@@ -1,7 +1,10 @@
+import { url } from "../endpoint/endpoint"
+
 export const fetchGallery = async (formData) => {
     try {
-      const response = await fetch('/api/products/galeria', {
+      const response = await fetch(`/api/products/galeria`, {
         method: 'POST',
+        credentials: 'include',
         body: prepareFormData(formData),
       });
   
