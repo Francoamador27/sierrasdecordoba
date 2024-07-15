@@ -13,7 +13,7 @@ function Login() {
   useEffect(() => {
       const fetchSession = async () => {
         try {
-          const res = await axios.get(`/api/sessions/show`, { withCredentials: true });
+          const res = await axios.get(`${url}/api/sessions/show`, { withCredentials: true });
           const user = res.data.user;
           if(user){
             dispatch(addUser(user))

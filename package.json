@@ -2,7 +2,7 @@
   "name": "sierras-cordoba",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://productmanager.onrender.com",
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
     "@testing-library/jest-dom": "^5.17.0",
@@ -14,6 +14,7 @@
     "draft-js": "^0.11.7",
     "draftjs-to-html": "^0.9.1",
     "geonames.js": "^3.0.6",
+    "http-proxy-middleware": "^3.0.0",
     "leaflet": "^1.9.4",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.1",
@@ -59,7 +60,6 @@
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
-  "devDependencies": {},
   "author": "",
   "license": "ISC"
 }

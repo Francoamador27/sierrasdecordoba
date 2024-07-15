@@ -2,7 +2,6 @@ import { url } from "../endpoint/endpoint";
 
 export const getAllProducts = async (params) => {
   let endPoint = `/api/products`;
-  console.log("endPoint",endPoint)
   if (params) {
     let queryParams = '';
 
@@ -12,11 +11,20 @@ export const getAllProducts = async (params) => {
     if (params.category) {
       queryParams += `category=${params.category}&`;
     }
+    if (params.clave) {
+      queryParams += `clave=${params.clave}&`;
+    }
     if (params.limit) {
       queryParams += `limit=${params.limit}&`;
     }
     if (params.page) {
       queryParams += `page=${params.page}&`;
+    }
+    if (params.departamento) {
+      queryParams += `departamento=${params.departamento}&`;
+    }
+    if (params.ciudad) {
+      queryParams += `ciudad=${params.ciudad}&`;
     }
     if (params.order) {
       queryParams += `order=${params.order}&`;
@@ -37,7 +45,7 @@ export const getAllProducts = async (params) => {
           throw new Error(`Error ${response.status}: ${response.statusText}`);
         }
         const apiData = await response.json();
-        return apiData.data.products;
+        return apiData.data;
       } catch (error) {
       console.error('Error al obtener los productos:', error);
 throw "Error";    }

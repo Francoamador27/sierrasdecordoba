@@ -13,6 +13,7 @@ import { convertirFechasADate } from "./utils.js/formatDate";
 import { Accordion } from "react-bootstrap";
 import RichEditor from "./Draft/RichEditor";
 import draftToHtml from 'draftjs-to-html';
+import { url } from "./utils.js/endpoint/endpoint";
 
 function Details() {
 
@@ -24,7 +25,7 @@ function Details() {
 
   const [state, setState] = useState(null);
   useEffect(() => {
-    const endPoint = `/api/products/${id}`;
+    const endPoint = `${url}/api/products/${id}`;
     axios.get(endPoint)
       .then(res => {
         const apiData = res.data.data;
@@ -33,7 +34,7 @@ function Details() {
         setState(apiData.availability)
         setDataFilm(apiData);
         const updatedThumbnail = apiData.thumbnail.map(filename => ({
-          src: `/products/${filename}`,
+          src: `${url}/products/${filename}`,
           alt: apiData.description,
 
         }));
@@ -52,7 +53,13 @@ function Details() {
       // Aquí puedes definir la lógica que desees para el botón
       console.log('Botón clickeado para la imagen:', image);
     };
+    useEffect(() => {
+      const interval = setInterval(() => {
+          document.getElementById('whatsapp-button').style.display = 'block';
+      }, 1000); // Mostrar cada 2 minutos
 
+      return () => clearInterval(interval);
+  }, []);
     return (
       <div>
         <img src={image.src} alt={image.alt} />
@@ -60,7 +67,7 @@ function Details() {
       </div>
     );
   };
-  let [descContent ,setDescContent] = useState();
+  let [descContent, setDescContent] = useState();
   useEffect(() => {
     if (dataFilm) {
       let description = JSON.parse(dataFilm.description);
@@ -73,7 +80,7 @@ function Details() {
       }
     }
   }, [dataFilm]);
-  
+  console.log(images, "images");
   return (
     <section className="details-page">
       {!dataFilm &&
@@ -121,7 +128,7 @@ function Details() {
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>Descripción de la propiedad</Accordion.Header>
                   <Accordion.Body>
-                  
+
 
                     {descContent && <div dangerouslySetInnerHTML={{ __html: descContent }} />}
                   </Accordion.Body>
@@ -131,11 +138,17 @@ function Details() {
 
               <p>Precio:<strong> {dataFilm.money} {dataFilm.price}</strong></p>
               <div>
-                <a href={`https://wa.me/${dataFilm.phonenumber}`}  target="_blank">Contactar por WhatsApp</a>
+                <a href={`https://wa.me/${dataFilm.phonenumber}`} target="_blank">Contactar por WhatsApp</a>
                 <br />
                 <a href={`tel:${dataFilm.phonenumber}`} >Llamar</a>
               </div>
             </div>
+          </div>
+          <div id="whatsapp-button" class="chat-window">
+            <div class="chat-header">
+              <p>Contactar para reservar</p>
+            </div>
+            <a href="https://wa.me/1234567890" target="_blank" class="chat-button">Contactar para reservar</a>
           </div>
           <section className="map-agenda">
             <div className="mapa">

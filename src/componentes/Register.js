@@ -4,6 +4,7 @@ import { addUser } from "../redux/userSlice";
 import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
 import axios from "axios";
+import { url } from "./utils.js/endpoint/endpoint";
 
 export function Register() {
   const dispatch = useDispatch()
@@ -30,7 +31,7 @@ export function Register() {
         icon: "info",
         title: "logging"
       });
-      const res = await axios.post('http://localhost:5000/auth/register', {firstName,lastName, email, password }, { withCredentials: true });
+      const res = await axios.post(`${url}/auth/register`, {firstName,lastName, email, password }, { withCredentials: true });
       if(res.data){
         dispatch(addUser(res.data.user))
         Swal.fire({

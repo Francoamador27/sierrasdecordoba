@@ -17,7 +17,7 @@ input.form-control:focus {
 
 }
 ul {
-  display: inline-block;
+  display: block;
 }
 input#stock {
   border: none;
@@ -96,10 +96,7 @@ nav {
   align-items: center;
 }
 
-ul {
-  display: inline-flex;
-  margin: 0px;
-}
+
 
 form {
   border: none;
@@ -413,10 +410,10 @@ input.crear {
 }
 .main-content-home {
   width: 80%;
+  padding: 10px;
 }
 .adds {
   width: 20%;
-  border: 1px solid black;
 }
 
 section.home-page {
@@ -553,13 +550,30 @@ p.filter-item {
 }
 
 
+ul.dept-ul {
+  display: inline-flex;
+  margin: 0px;
+  padding: 0px;
+}
 
+ul.dept-ul li {
+  margin: 0px 0px 0px 0px;
+  list-style: none;
+}
 
 
 
 /* search page  */
 section.search-page {
   display: flex;
+  flex-wrap: wrap;
+}
+section.list-category-page {
+  margin: 20px;
+}
+.botton-search-categorypage {
+  text-align: center;
+  margin: 30px;
 }
 section.list-prop {
   width: 55%;
@@ -575,4 +589,92 @@ section.list-prop {
 }
 section.logged {
   margin: 39px 100px;
+}
+
+ul.dept-ul li {
+  margin: 0px 3px 3px 4px;
+  list-style: none;
+}
+
+
+
+h2.title-search {
+  font-size: 26px;
+}
+span.localidad {
+  font-size: 27px;
+  color: var(--color-primary);
+}
+
+
+/* css mapa  */
+
+.map-search {
+  margin-top: 50px;
+  width: 37%;
+  height: 100% !important;
+}
+
+.img-marker {
+  width: 200px;
+  height: 150px;
+}
+.img-marker img{
+  width: 100% !important;
+  height: 100%;
+}
+h5.title-marker {
+  font-size: 20px;
+}p.price-marker {
+  font-size: 18px;
+}.ver-mas.div-btn a {
+  font-size: 19px;
+}
+
+
+button.pagination {
+  background: none;
+  color: blue;
+}
+
+button.pagination-active.pagination {
+  background: blue;
+  color: white;
+  border-radius: 50%;
+}
+
+button.pagination-button {
+  background: blue;
+}
+button.btn.btn-primary {
+  background: blue;
+}
+.regiones-div {
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+button.buscador.btn.btn-primary {
+  background: white;
+}
+h3.title-regions a {
+  color: white;
+}
+
+a.titulos-con-propiedades {
+  color: black;
+}
+.regiones-div {
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 0px;
+}
+.paginatio-search {
+  background: none !important;
+  color: black !important;
 }

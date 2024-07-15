@@ -172,7 +172,7 @@ export const EditsPosts = () => {
       thumbnail: productUpdated.data.thumbnail,
     }));
     const updatedThumbnail = productUpdated.data.thumbnail.map(filename => ({
-      src: `http://localhost:5000/products/${filename}`,
+      src: `${url}products/${filename}`,
       alt: productUpdated.data.description,
 
     }))

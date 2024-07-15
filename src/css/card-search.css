@@ -1,10 +1,10 @@
 
 .card-search {
   width: 100%;
-  max-width: 300px;
+  max-width: 240px;
   margin-bottom: 0px;
   margin: 10px 10px;
-  min-height: 380px;
+  min-height: 345px;
   transition: transform 0.3s ease;
 }
 .card-search:hover {
@@ -112,4 +112,8 @@ img.image-card-search {
 }
 .swiper.galery-search {
   border-radius: 20px;
+}
+
+.swiper.swiper-initialized.swiper-horizontal.swiper-backface-hidden.mySwiper.galery-search {
+  height: 230px;
 }

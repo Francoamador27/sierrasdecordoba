@@ -4,6 +4,7 @@ import { TileLayer } from 'react-leaflet/TileLayer'
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { useEffect, useState } from 'react';
+import customIconUrl from '../marker/home.png';
 
 export const MapaDetails = (props) => {
   const {location} = props;
@@ -36,7 +37,16 @@ export const MapaDetails = (props) => {
       iconUrl: require('leaflet/dist/images/marker-icon.png'),
       shadowUrl: require('leaflet/dist/images/marker-shadow.png')
   });
+  const customIcon1 = L.icon({
 
+    iconRetinaUrl: customIconUrl,
+    iconUrl: customIconUrl,
+    shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+    iconSize: [40, 41], // tamaño del icono
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34], // punto desde donde debe abrirse el popup en relación con el icono
+    shadowSize: [41, 41]
+});
     return (
       <div style={{ width: '100%', height: '400px' }}>
         { position &&
@@ -46,7 +56,7 @@ export const MapaDetails = (props) => {
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
-    <Marker position={position} >
+    <Marker position={position} icon={customIcon1} >
       <Popup>
       {title}      </Popup>
     </Marker>

@@ -72,3 +72,6 @@
   .field {
     flex: 1;
   }
+  button.btn.btn-primary {
+    background: blue;
+}

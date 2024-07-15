@@ -16,6 +16,12 @@ function Listado(props) {
     if(props.category ){
       params.category = props.category;
     }
+    if(props.departamento ){
+      params.departamento = props.departamento;
+    }
+    if(props.ciudad){
+      params.ciudad = props.ciudad;
+    }
     if(props.order){
       params.order = props.order;
     }
@@ -35,7 +41,7 @@ function Listado(props) {
         const data = await getAllProducts(params);
         // props.onProductsLoaded(data.length > 0);
 
-        setProducts(data);
+        setProducts(data.products);
       } catch (error) {
         Swal.fire({
           icon: 'error',
