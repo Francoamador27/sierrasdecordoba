@@ -58,7 +58,7 @@ export const MenuAdmin = () => {
                                 {session.role === 'admin' && (
                                     <>
                                         <hr className="menu-admin-hr" />
-                                        <Link title="Ver Usuarios" to="/usuarios" className="nav_link">
+                                        <Link title="Ver Usuarios" to="/users" className="nav_link">
                                             <i className='bx bxs-user-account nav_icon'></i>
                                             <span className="nav_name">Usuarios</span>
                                         </Link>

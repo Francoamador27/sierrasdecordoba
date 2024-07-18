@@ -1,7 +1,7 @@
 import { url } from "../endpoint/endpoint";
 
 export async function fetchImageDelete(id, image) {
-  const endPoint = `/api/products/image/${id}/${image}`;
+  const endPoint = `${url}/api/products/image/${id}/${image}`;
   try {
     const response = await fetch(endPoint, {
       method: 'DELETE',

@@ -28,7 +28,7 @@ export const FormLogin = ()=>{
             icon: "info",
             title: "logging"
           });
-          const res = await axios.post(`/auth/login`, { email, password }, { withCredentials: true });
+          const res = await axios.post(`${url}/auth/login`, { email, password }, { withCredentials: true });
           if(res.data){
             dispatch(addUser(res.data.user))
             Swal.fire({

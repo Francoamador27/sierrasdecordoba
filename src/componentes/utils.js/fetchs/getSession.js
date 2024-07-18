@@ -4,7 +4,7 @@ export const getSession = async (parametro) => {
 
     
   
-    const endPointSession = `/api/sessions/show`;
+    const endPointSession = `${url}/api/sessions/show`;
     try {
       const response = await fetch(endPointSession, {
         method: 'GET',

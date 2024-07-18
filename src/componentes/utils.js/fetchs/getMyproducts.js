@@ -1,7 +1,7 @@
 import { url } from "../endpoint/endpoint"
 
 export const getMyProducts = async (parametro) => {
-        const endPoint = `/api/products/myProducts?limit=10`;
+        const endPoint = `${url}/api/products/myProducts?limit=10`;
         try {
           const response = await fetch(endPoint, {
             method: 'GET',

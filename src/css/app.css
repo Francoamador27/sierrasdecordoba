@@ -678,3 +678,21 @@ a.titulos-con-propiedades {
   background: none !important;
   color: black !important;
 }
+
+@media(max-width :820px) {
+  section.map-agenda {
+    display: block;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .rdrDateRangeWrapper {
+    width: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+.rdrMonth {
+  width: 100% !important;
+}
+}

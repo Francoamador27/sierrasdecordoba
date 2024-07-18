@@ -1,7 +1,7 @@
 import { url } from "../endpoint/endpoint";
 
 export const getAllProducts = async (params) => {
-  let endPoint = `/api/products`;
+  let endPoint = `${url}/api/products`;
   if (params) {
     let queryParams = '';
 

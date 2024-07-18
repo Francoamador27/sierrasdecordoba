@@ -64,7 +64,7 @@ export const CreateGallery = () => {
       color: "blue"
     },
   });
-// console.log("hola")
+  // console.log("hola")
   const handleAddRange = (e) => {
     e.preventDefault();
     const arrayState = Object.values(state)
@@ -268,8 +268,8 @@ export const CreateGallery = () => {
                   </select>
                   <label htmlFor="description">Descripción:</label>
                   <p>Crea la descripcion con las mejores herramientas para hacer tu descripcion escencial</p>
-                  
-                  
+
+
                   <RichEditor onEditorChange={handleEditorChange} />
                   <div className="money">
                     <label htmlFor="price">Precio:</label>
@@ -300,6 +300,8 @@ export const CreateGallery = () => {
                     valorInicial={formData.ubicacion.ciudad}
                   />
                 )}
+                Para una ubicación exacta necesitamos que selecciones en el mapa el lugar exacto
+
                 <MapaDetails addPosition={addPosition} location={formData.location} />
                 <div className="inputs-location">
                   <div className="coordenadas">

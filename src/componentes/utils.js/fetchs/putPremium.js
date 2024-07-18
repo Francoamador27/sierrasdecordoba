@@ -3,7 +3,7 @@ import { url } from "../endpoint/endpoint";
   
   export const putPremium = async (id) => {
       try {
-              const response = await fetch(`/api/users/premium/${id}` , {
+              const response = await fetch(`${url}/api/users/premium/${id}` , {
           method: 'PUT',
           credentials: 'include'
         });

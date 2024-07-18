@@ -243,6 +243,9 @@ export const CreateProducts = () => {
                 valorInicial={formData.ubicacion.ciudad}
               />
             )}
+            Para una ubicación exacta necesitamos que selecciones en el mapa el lugar exacto
+
+
             <MapaDetails addPosition={addPosition} location={formData.location} />
             <div className="inputs-location">
               <div className="coordenadas">

@@ -55,11 +55,11 @@ function Details() {
     };
     useEffect(() => {
       const interval = setInterval(() => {
-          document.getElementById('whatsapp-button').style.display = 'block';
+        document.getElementById('whatsapp-button').style.display = 'block';
       }, 1000); // Mostrar cada 2 minutos
 
       return () => clearInterval(interval);
-  }, []);
+    }, []);
     return (
       <div>
         <img src={image.src} alt={image.alt} />
@@ -74,9 +74,7 @@ function Details() {
       if (typeof description === 'object' && description !== null) {
         const htmlContent = draftToHtml(description);
         setDescContent(htmlContent);
-        console.log('La variable es un objeto');
       } else {
-        console.log('La variable no es un objeto o es null');
       }
     }
   }, [dataFilm]);
@@ -146,9 +144,9 @@ function Details() {
           </div>
           <div id="whatsapp-button" class="chat-window">
             <div class="chat-header">
-              <p>Contactar para reservar</p>
+              <p>Contactate con el hospedaje</p>
             </div>
-            <a href="https://wa.me/1234567890" target="_blank" class="chat-button">Contactar para reservar</a>
+            <a href={`https://wa.me/${dataFilm.phonenumber}`} target="_blank" class="chat-button">Haz click aqui y escribinos</a>
           </div>
           <section className="map-agenda">
             <div className="mapa">
@@ -176,7 +174,7 @@ function Details() {
                   ranges={Object.values(state).reverse()} editable={false} onChange={() => { }}
                   showSelectionPreview={false} showMonthAndYearPickers={false} moveRangeOnFirstSelection={false}
                 />
-                <button className="contact-agenda">Contactar</button>
+                <a href={`https://wa.me/${dataFilm.phonenumber}`} target="_blank" class="chat-button">Haz click aqui y reserva</a>
               </div>
             }
 

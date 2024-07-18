@@ -17,6 +17,7 @@ const MapWithMarkers = () => {
     const order = queryParams.get('order');
     const ciudad = queryParams.get('ciudad');
     const category = queryParams.get('category');
+    const clave = queryParams.get('palabra_clave');
 
     const [position, setPosision] = useState([-31.2994, -64.4985]);
 
@@ -87,8 +88,11 @@ const MapWithMarkers = () => {
         if (order) {
             params.order = order;
         }
+        if (clave) {
+            params.clave = clave;
+        }
         return params;
-    }, [page, category, order, departamento, ciudad]);
+    }, [page, category, order, departamento, ciudad,clave]);
     useEffect(() => {
         const fetchAll = async () => {
             try {
@@ -103,7 +107,7 @@ const MapWithMarkers = () => {
             }
         };
         fetchAll();
-    }, [category, page, order, departamento, ciudad]);
+    }, [category, page, order, departamento, ciudad,clave]);
 
     const correctLongitude = (lng) => {
         // Corrige la longitud si está fuera del rango [-180, 180]

@@ -20,6 +20,9 @@ const ListadoSearch = React.memo(() => {
 
     const [products, setProducts] = useState([]);
     const [pagination, setPagination] = useState();
+    const [showLoading, setShowLoading] = useState(true);
+    const [message, setMessage] = useState('');
+
     const params = useMemo(() => {
         const params = { page };
         if (category) {
@@ -43,7 +46,7 @@ const ListadoSearch = React.memo(() => {
             params.order = order;
         }
         return params;
-    }, [page, category, order, departamento, ciudad,clave]);
+    }, [page, category, order, departamento, ciudad, clave]);
     useEffect(() => {
         const fetchAll = async () => {
             try {
@@ -61,7 +64,7 @@ const ListadoSearch = React.memo(() => {
             }
         };
         fetchAll();
-    }, [category, page, order, departamento, ciudad,clave]);
+    }, [category, page, order, departamento, ciudad, clave]);
 
     const handlePageChange = (newPage) => {
         queryParams.set('page', newPage);
@@ -83,11 +86,25 @@ const ListadoSearch = React.memo(() => {
 
         return pages;
     };
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (products.length === 0 && !showLoading) {
+                setShowLoading(true);
+            }
+        }, 5000);
+
+        setShowLoading(false);
+    }, [products]);
     return (
         <section className='list-prop'>
-            {(!products || products.length === 0) && <Loading />}
-            <h2 className='title-search'>Resultado de busqueda en    <span className='localidad'>{departamento && departamento} {ciudad && ciudad} </span> </h2>
-           {clave && clave}
+            <h2 className='title-search'>Resultado de busqueda   {clave && clave}  <span className='localidad'>{departamento && departamento} {ciudad && ciudad} </span> </h2>
+            {(!products || products.length === 0) && !showLoading ? (
+                <Loading />
+            ) : (
+                products.length > 0 ? 'Estos son los resultados' : 'No se encontraron resultados de búsqueda con esas características'
+            )}
+
             <div className="list-props">
                 {products.map((oneMovie, index) => (
                     <CardSearch key={index} data={oneMovie} />

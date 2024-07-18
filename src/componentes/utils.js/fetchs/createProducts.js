@@ -1,3 +1,5 @@
+import { url } from "../endpoint/endpoint";
+
 const createFormData = (data) => {
     const formData = new FormData();
     for (const key in data) {
@@ -11,7 +13,7 @@ const createFormData = (data) => {
 
 export const fetchCreate = async (formData) => {
     try {
-      const response = await fetch('/api/products/', {
+      const response = await fetch(`${url}/api/products/`, {
         method: 'POST',
         body: createFormData(formData),
       });

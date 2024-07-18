@@ -1,5 +1,7 @@
+import { url } from "../endpoint/endpoint";
+
 export const fetchUbicaciones = async () => {
-    let endPoint = `/api/products/ubicacion`;
+    let endPoint = `${url}/api/products/ubicacion`;
     try {
       const response = await fetch(endPoint, {
         method: 'GET',

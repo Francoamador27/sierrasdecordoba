@@ -1,7 +1,7 @@
 import { url } from "../endpoint/endpoint";
 
 export const getUsers = async (parametro) => {
-    const endPoint = `/api/users/`;
+    const endPoint = `${url}/api/users/`;
     try {
       const response = await fetch(endPoint, {
         method: 'GET',

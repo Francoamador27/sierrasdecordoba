@@ -54,7 +54,7 @@ export const ButtonSearch = () => {
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
-    const sanitizedValue = value.replace(/\s+/g, "-"); // Elimina los espacios en blanco
+    const sanitizedValue = value; // Elimina los espacios en blanco
     setFormData({
       ...formData,
       [name]: sanitizedValue

@@ -18,7 +18,7 @@ const prepareFormData = (formData) => {
 export const fetchEdit = async (formData,id) => {
     try {
       console.log("data en el endpoint",prepareFormData(formData))
-            const response = await fetch(`/api/products/${id}` , {
+            const response = await fetch(`${url}/api/products/${id}` , {
         method: 'PUT',
         body: prepareFormData(formData),
       });

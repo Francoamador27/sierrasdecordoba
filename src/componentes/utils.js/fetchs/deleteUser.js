@@ -1,7 +1,7 @@
 import { url } from "../endpoint/endpoint";
 
 export async function deleteUser(id) {
-    const endPoint = `/api/users/${id}`;
+    const endPoint = `${url}/api/users/${id}`;
     try {
       const response = await fetch(endPoint, {
         method: 'DELETE',

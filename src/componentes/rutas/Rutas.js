@@ -23,7 +23,8 @@ export const Rutas = () => {
       <Route path='/galeria' element={<CreateGallery />} />
       <Route path='/editpost' element={<EditsPosts />} />
       <Route path='/register' element={<Register />} />
-      <Route path='/usuarios' element={<Users />} />
+      <Route path='/users' element={<Users />} />
+      <Route path='/user' element={<Users />} />
     </Routes>
   )
 }

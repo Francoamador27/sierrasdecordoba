@@ -116,8 +116,7 @@ const StyleButton = ({ onToggle, active, label, style }) => {
 };
 
 const BLOCK_TYPES = [
-  { label: 'Titulo letra grande', style: 'header-two' },
-  { label: 'Titulo letra mediana', style: 'header-three' },
+
   { label: 'Titulo letra pequeña', style: 'header-four' },
   { label: 'Titulo letra pequeña sin negrita', style: 'header-six' },
   { label: 'Listado con icono', style: 'unordered-list-item' },
