@@ -1,5 +1,7 @@
+import { url } from "../utils.js/endpoint/endpoint";
+
 export const getEditPage= async (id)=>{
-    const endPoint = `/api/products/edit/${id}`;
+    const endPoint = `${url}/api/products/edit/${id}`;
       try {
         const response = await fetch(endPoint, {
           method: 'GET',
