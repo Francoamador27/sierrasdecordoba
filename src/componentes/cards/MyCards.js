@@ -30,7 +30,7 @@ export const MyCards = (props) => {
   }
   function fetchDelete(data) {
     const id = data.id;
-    const endPoint = `/api/products/${id}`;
+    const endPoint = `${url}/api/products/${id}`;
     fetch(endPoint, {
       method: 'DELETE',
       credentials: 'include',
