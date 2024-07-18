@@ -4,6 +4,7 @@ import { cleanUser } from "../redux/userSlice";
 import { useNavigate } from "react-router-dom";
 import '../css/unlog.css'
 import Swal from "sweetalert2";
+import { url } from "./utils.js/endpoint/endpoint";
 export const Unlog = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ export const Unlog = () => {
   });
 
   const fetchUnlog = async () => {
-    await axios.get('/auth/logout', { withCredentials: true });
+    await axios.get(`${url}/auth/logout`, { withCredentials: true });
     Toast.fire({
       icon: "error",
       title: "Unlogin"
