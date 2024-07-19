@@ -1,3 +1,5 @@
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
 span.navbar-brand a {
   font-family: var(--font-principal);
   font-weight: 800;
@@ -66,4 +68,10 @@ a.dropdown-item {
   text-decoration: none;
   outline: none !important;
   box-shadow: none;
+}
+nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
+  background: blue !important;
+}.dropdown a {
+  width: 100%;
+  display: block;
 }

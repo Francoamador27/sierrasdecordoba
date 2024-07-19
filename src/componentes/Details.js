@@ -136,9 +136,9 @@ function Details() {
 
               <p>Precio:<strong> {dataFilm.money} {dataFilm.price}</strong></p>
               <div>
-                <a href={`https://wa.me/${dataFilm.phonenumber}`} target="_blank">Contactar por WhatsApp</a>
+                <Link  to={`https://wa.me/${dataFilm.phonenumber}`} target="_blank">Contactar por WhatsApp</Link>
                 <br />
-                <a href={`tel:${dataFilm.phonenumber}`} >Llamar</a>
+                <Link to={`tel:${dataFilm.phonenumber}`} >Llamar</Link>
               </div>
             </div>
           </div>
@@ -146,7 +146,7 @@ function Details() {
             <div class="chat-header">
               <p>Contactate con el hospedaje</p>
             </div>
-            <a href={`https://wa.me/${dataFilm.phonenumber}`} target="_blank" class="chat-button">Haz click aqui y escribinos</a>
+            <Link to={`https://wa.me/${dataFilm.phonenumber}`} target="_blank" class="chat-button">Haz click aqui y escribinos</Link>
           </div>
           <section className="map-agenda">
             <div className="mapa">
@@ -174,7 +174,7 @@ function Details() {
                   ranges={Object.values(state).reverse()} editable={false} onChange={() => { }}
                   showSelectionPreview={false} showMonthAndYearPickers={false} moveRangeOnFirstSelection={false}
                 />
-                <a href={`https://wa.me/${dataFilm.phonenumber}`} target="_blank" class="chat-button">Haz click aqui y reserva</a>
+                <Link to={`https://wa.me/${dataFilm.phonenumber}`} target="_blank" class="chat-button">Haz click aqui y reserva</Link>
               </div>
             }
 

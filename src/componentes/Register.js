@@ -100,7 +100,7 @@ export function Register() {
           <div className="buttons">
             <button type="submit" className="btn btn-primary btn-form">Registrarse</button>
 
-            <button type="button" className="btn btn-primary btn-aux"><a href="/login">Login </a></button>
+            <button type="button" className="btn btn-primary btn-aux"><Link to="/login">Login </Link></button>
           </div>
         </form>
       </div>

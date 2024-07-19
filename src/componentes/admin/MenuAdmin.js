@@ -47,9 +47,7 @@ export const MenuAdmin = () => {
                     <nav className="nav">
                         <div>
                             <div className="nav_list">
-                                <div className="header_img">
-                                    <img src="/static/media/banner.9cfc695cf953f1aad538.jpg" alt="" />
-                                </div>
+                             
 
                                 <Link title="Mi cuenta" to="/login" className="nav_link">
                                     <i className='bx bx-user nav_icon'></i>

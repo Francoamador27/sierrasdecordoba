@@ -89,8 +89,8 @@ a {
 
 
 
-
 .nav_link {
+    text-decoration: none;
     position: relative;
     color: var(--first-color-light);
     margin-top: 19px;

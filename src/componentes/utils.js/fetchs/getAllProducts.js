@@ -48,5 +48,6 @@ export const getAllProducts = async (params) => {
         return apiData.data;
       } catch (error) {
       console.error('Error al obtener los productos:', error);
-throw "Error";    }
+      throw new Error('Some error message');
+    }
   };

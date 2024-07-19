@@ -1,0 +1,77 @@
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+.bottom-nav-switch {
+  display: flex;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 40px;
+  background: #2e6eebd6;
+  border-radius: 20px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  overflow: hidden;
+}
+.bottom-nav-switch button {
+  width: 50%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s;
+  z-index: 1;
+}
+
+.bottom-nav-switch button i {
+  font-size: 20px;
+}
+
+
+
+.bottom-nav-switch .switch {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  width: 50%;
+  background: #007bff;
+  border-radius: 20px;
+  transition: transform 0.3s;
+  z-index: 0;
+}
+
+.bottom-nav-switch.list .switch {
+  transform: translateX(0);
+}
+
+.bottom-nav-switch.map .switch {
+  transform: translateX(100%);
+}
+
+@media (min-width: 820px) {
+  .bottom-nav-switch {
+    display: none;
+  }
+}
+.active-switch i.bi {
+  background: white;
+  padding: 3px 7px;
+  border-radius: 50%;
+}
+.bottom-nav-switch button.active-switch {
+  color: #061af0;
+}
+.bg-body-tertiary {
+  --bs-bg-opacity: 1;
+  background-color: rgb(12 122 233) !important;
+}
