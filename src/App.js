@@ -23,7 +23,7 @@ function App() {
       if (ubiAlojamientos) {
         dispatch(setubicaciones(ubiAlojamientos));
         
-        // setReady(false);
+        setReady(false);
       }
       if (ubicacionesTours) {
         dispatch(setubiTours(ubicacionesTours));
