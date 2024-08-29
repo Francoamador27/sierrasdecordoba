@@ -21,6 +21,7 @@ export const fetchEdit = async (formData,id) => {
             const response = await fetch(`${url}/api/products/${id}` , {
         method: 'PUT',
         body: prepareFormData(formData),
+        credentials: 'include',
       });
       if (response.ok) {
         const responseData = await response.json(); 

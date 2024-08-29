@@ -145,7 +145,7 @@ export const Users = () => {
                                     <td>{user.email}</td>
                                     <td>{user.role}</td>
                                     <td>
-                                        <Link className="edit-button" to={`/user?=${user.id}`}>Ver/Editar</Link>
+                                        <Link className="edit-button" to={`/user?id=${user.id}`}>Ver/Editar</Link>
                                         <button className="delete-button-user" onClick={() => handleDelete(user.id)}>Eliminar</button>
 
                                         {user.role === 'user' && (

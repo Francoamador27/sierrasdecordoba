@@ -490,10 +490,10 @@ section.banner-main {
   justify-content: center;
   align-items: center;
 }
-section.banner-main h1{
+section.banner-main h1 {
   color: white;
   filter: brightness(1) !important;
-
+  font-weight: 200;
 }
 
 
@@ -663,12 +663,15 @@ button.buscador.btn.btn-primary {
   background: white;
 }
 h3.title-regions a {
+  text-decoration: none;
   color: white;
+  font-weight: 400;
 }
 
 a.titulos-con-propiedades {
   color: black;
   text-decoration: none;
+  font-weight: 300;
 }
 .regiones-div {
   padding: 10px;
@@ -777,4 +780,22 @@ section.logged {
   padding: 20px 0px;
 }.dropdown-menu.show {
   display: block !important ;
+}
+section.loading-home {
+  margin: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.logo{
+
+  width: 50px;
+}
+button.accordion-button.collapsed {
+  padding: 0px !important;
+}
+h2.accordion-header {
+  margin: 0px;
 }

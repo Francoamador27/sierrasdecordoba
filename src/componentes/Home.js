@@ -10,20 +10,16 @@ import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/module
 // Usa los módulos que necesites
 export function Home() {
     const ubicaciones = useSelector(state => state.ubicaciones);
-    console.log('ubicaciones', ubicaciones);
+    const ubiTours = useSelector(state => state.ubiTours);
+    console.log('ubiTours', ubiTours);
     const [showProducts, setShowProducts] = useState(true);
     function buscarImagenPorDepartamento(departamento) {
-        // Convertir el nombre del departamento a minúsculas para asegurar la búsqueda insensible a mayúsculas
         const nombreDepartamento = departamento.toLowerCase();
-
-        // Buscar el objeto departamento dentro del arreglo RegionesCordoba
         const regionEncontrada = RegionesCordoba.find(region => region.departamento.toLowerCase() === nombreDepartamento);
-
-        // Verificar si se encontró la región y devolver la imagen si existe
         if (regionEncontrada && regionEncontrada.imagen) {
             return regionEncontrada.imagen;
         } else {
-            return null; // Si no se encuentra el departamento o no tiene imagen, devolver null o manejar según necesites
+            return null; 
         }
     }
     return (
@@ -103,7 +99,7 @@ export function Home() {
                         <div key={index}>
                             {ubicacion.ciudades.slice(0, 4).map((ciudad, ciudadIndex) => (
                                 <>
-                                    <h3>Alquileres temporarios en {ciudad}</h3>
+                                    <h3 key={ciudadIndex}>Alquileres temporarios en {ciudad}</h3>
                                     <Listado category="alquiler-temporal" ciudad={ciudad} order="asc" onProductsLoaded={setShowProducts} />
                                 </>
                             ))}

@@ -262,9 +262,8 @@ export const CreateGallery = () => {
                   <label htmlFor="category">Tipo de publicación:</label>
                   <select id="category" name="category" value={formData.category} onChange={handleInputChange} >
                     <option value="alquiler-temporal">Alquiler temporal</option>
-                    <option value="alquiler-anual">Alquiler anual</option>
-                    <option value="venta-de-terrenos">Venta de terrenos</option>
-                    <option value="venta-de-propiedades">Venta de propiedades</option>
+                    <option value="tours">Tours</option>
+                    <option value="restaurantes">Restaurantes</option>
                   </select>
                   <label htmlFor="description">Descripción:</label>
                   <p>Crea la descripcion con las mejores herramientas para hacer tu descripcion escencial</p>

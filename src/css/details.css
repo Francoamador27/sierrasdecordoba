@@ -130,3 +130,6 @@ img.img-thumbnail {
 .chat-button:hover {
     background-color: #1EB354;
 }
+.details-page h2 {
+    margin-top: 20px;
+}

@@ -12,7 +12,7 @@ export const getMyProducts = async (parametro) => {
             throw new Error(`Error ${response.status}: ${response.statusText}`);
           }
           const apiData = await response.json();
-          return apiData.data.products;
+          return apiData.data;
         } catch (error) {
        return ;
   

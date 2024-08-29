@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { UpdatePassword } from "./updateProfile.js/udpatePassword";
 
 export const DataSession = () => {
   const session = useSelector((state) => state.user);
@@ -9,7 +10,7 @@ export const DataSession = () => {
     <section className="logged  perfil-page">
       {userLogged ? (
         <>
-          <h2>Hola {session.firstName} esta es tu cuenta</h2>
+          <h2>Hola {session.firstName} datos de tu cuenta</h2>
           <p>Nombre: {session.firstName}</p>
           <p>Email: {session.email}</p>
           {session.role === 'user' && (
@@ -36,6 +37,8 @@ export const DataSession = () => {
               <p>Rol: {session.role}</p> {/* Corregido a session.role */}
             </>
           )}
+          <UpdatePassword />
+
         </>
       ) : (
         // Puedes añadir algo para mostrar si el usuario no está logeado

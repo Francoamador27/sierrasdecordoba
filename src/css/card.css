@@ -15,46 +15,7 @@
   clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 70%, 0 89%);
 }
 
-.left-curve {
-  position: absolute;
-  left: -2px;
-  top: 240px;
-  width: 53.1%;
-  height: -1px;
-  border-top: 10px solid transparent;
-  -webkit-transform: rotate(-12deg);
-  -ms-transform: rotate(-12deg);
-  -o-transform: rotate(-12deg);
-  -moz-transform: rotate(-13deg);
-  transform: rotate(-19deg);
-  transition: all 500ms ease;
-  -webkit-transition: all 500ms ease;
-  -ms-transition: all 500ms ease;
-  -o-transition: all 500ms ease;
-  -moz-transition: all 500ms ease;
 
-}
-
-
-.card .right-curve {
-  position: absolute;
-  right: -3px;
-  top: 242px;
-  width: 53.1%;
-  height: -1px;
-  border-top: 10px solid transparent;
-  -webkit-transform: rotate(-16deg);
-  -ms-transform: rotate(12deg);
-  -o-transform: rotate(12deg);
-  -moz-transform: rotate(12deg);
-  transform: rotate(20deg);
-  transition: all 500ms ease;
-  -webkit-transition: all 500ms ease;
-  -ms-transition: all 500ms ease;
-  -o-transition: all 500ms ease;
-  -moz-transition: all 500ms ease;
-
-}
 .imagen{
   width: 100%;
   height: 297px;

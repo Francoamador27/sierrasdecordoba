@@ -22,6 +22,7 @@ button.navbar-toggler.collapsed {
 }
 
 a#basic-nav-dropdown {
+  text-align: center;
   color: white;
 }
 
@@ -74,4 +75,54 @@ nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
 }.dropdown a {
   width: 100%;
   display: block;
+}
+a.logo-frase {
+  display: flex;
+  align-items: center;
+}
+
+a.logo-frase p {
+  font-weight: 200;
+  margin: 0px;
+}
+span.navbar-brand {
+  width: 300px;
+  height: 50px;
+}
+.logo {
+  width: 100%;
+}
+@media( max-width: 600px){
+  a.logo-frase {
+    display: block;
+    text-align: center;
+}
+a.logo-frase p {
+  font-size: 11px;
+  margin: 0px;
+}
+}
+.me-auto.navbar-nav a {
+  position: relative;
+  text-decoration: none;
+  color: white;
+}
+
+.me-auto.navbar-nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px; /* Ajusta el grosor del borde */
+  bottom: 0;
+  left: 50%;
+  background-color: white;
+  transition: width 0.4s ease, left 0.4s ease;
+}
+
+.me-auto.navbar-nav a:hover::after {
+  width: 100%;
+  left: 0;
+}
+a.button-class.active-button {
+  border-bottom: 2px solid white;
 }

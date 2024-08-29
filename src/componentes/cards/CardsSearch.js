@@ -9,7 +9,7 @@ import { url } from "../utils.js/endpoint/endpoint";
 export const CardSearch = (props) => {
   const { data } = props;
   return (
-    <div className="col-12 col-sm-6 col-md-4 col-lg-3 card-search" key={data.id}>
+    <div className="card-search" key={data.id}>
           <Swiper
             pagination={{
               type: 'progressbar',
@@ -33,6 +33,20 @@ export const CardSearch = (props) => {
           <Link to={`/details?id=${data.id}`} className="link">
             <h5 className="card-title">{data.title > 20 ? `${data.title.slice(0, 20)}...` : data.title}</h5>
           </Link>
+          
+          {data.ubicacion.departamento &&
+            <>
+              <p className="enlaces-ubicacion"><i className="bi bi-geo"></i>
+                {data.ubicacion.departamento}
+                {data.ubicacion.ciudad && 
+                <>
+                /
+                {data.ubicacion.ciudad}
+                </>
+
+                }</p>
+            </>
+          }
           <Link to={`/details?id=${data.id}`} className="link link-info">
             <p className="card-text"><strong>{data.money}{data.price}</strong></p>
           </Link>

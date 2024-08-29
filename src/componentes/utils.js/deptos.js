@@ -126,17 +126,12 @@ export const RegionesCordoba = [
   }
 ];
 export function buscarCoordenadasPorDepartamento(departamento) {
-  // Convertir el nombre del departamento a minúsculas para asegurar la búsqueda insensible a mayúsculas
   const nombreDepartamento = departamento.toLowerCase();
-
-  // Buscar el objeto departamento dentro del arreglo RegionesCordoba
   const regionEncontrada = RegionesCordoba.find(region => region.departamento.toLowerCase() === nombreDepartamento);
-
-  // Verificar si se encontró la región y devolver las coordenadas si existen
   if (regionEncontrada && regionEncontrada.ubicacion) {
     return regionEncontrada.ubicacion;
   } else {
-    return null; // Si no se encuentra el departamento o no tiene ubicación, devolver null o manejar según necesites
+    return null; 
   }
 }
 export const coordenadas = {

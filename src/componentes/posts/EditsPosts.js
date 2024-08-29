@@ -243,6 +243,7 @@ export const EditsPosts = () => {
       description: JSON.stringify(rawContentState)
     }));
   };
+console.log(formData);
   return (
     <section className="edit-page">
       <MenuAdmin />

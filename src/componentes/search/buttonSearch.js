@@ -2,23 +2,18 @@ import { Button, Modal } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import '../../css/filter.css'
-import { url } from "../utils.js/endpoint/endpoint";
-import { fetchUbicaciones } from "../utils.js/fetchs/getUbicacion";
 import { useSelector } from "react-redux";
 
 export const ButtonSearch = () => {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
-    const initialRegions = useSelector(state => state.ubicaciones);
-
+  const initialRegions = useSelector(state => state.ubicaciones);
+  const initialUbiTours = useSelector(state => state.ubiTours);
   const [regionesCordoba, setRegionesCordoba] = useState(useSelector(state => state.ubicaciones));
   const [departamentoSeleccionado, setDepartamentoSeleccionado] = useState('');
   const [ciudades, setCiudades] = useState([]);
 
-
-
   useEffect(() => {
-    // Este efecto se ejecuta solo una vez al montar el componente
     setRegionesCordoba(initialRegions);
   }, [initialRegions]); // 
 
@@ -54,7 +49,17 @@ export const ButtonSearch = () => {
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
-    const sanitizedValue = value; // Elimina los espacios en blanco
+    //agregar las regiones segun la categoria seleccionada, si selecciono tours agregar las regiones de los tours
+    if(value === 'tours'){
+      setRegionesCordoba(initialUbiTours);
+    }
+    if(value === 'alquiler-temporal'){
+      setRegionesCordoba(initialRegions);
+    }
+    if(value === 'restaurantes'){
+      setRegionesCordoba(initialRegions);
+    }
+    const sanitizedValue = value; 
     setFormData({
       ...formData,
       [name]: sanitizedValue
@@ -78,7 +83,6 @@ export const ButtonSearch = () => {
       ciudad: ciudad
     });
   };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const searchParams = new URLSearchParams();
@@ -86,10 +90,17 @@ export const ButtonSearch = () => {
       searchParams.append(key, value);
     });
     const queryString = searchParams.toString();
-    const searchUrl = `/propiedades?${queryString}`;
+    if(formData.category === 'tours'){
+      var searchUrl = `/tours?${queryString}`;
+    }else if(formData.category === 'alquiler-temporal'){
+      var searchUrl = `/propiedades?${queryString}`;
+    }else{
+      var searchUrl = `/restaurantes?${queryString}`;
+    }
     navigate(searchUrl);
     handleClose();
   };
+  const [selectedOption, setSelectedOption] = useState('');
 
   return (
     <>
@@ -105,13 +116,24 @@ export const ButtonSearch = () => {
       </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Filtros</Modal.Title>
+          <Modal.Title>Buscador</Modal.Title>
         </Modal.Header>
         <form className="search-form" onSubmit={handleSubmit}>
+          {/* Comentario de crear un select para cambiar la categoria en tres opciones , tours, alquiler-temporal y restaurantes */}
+          <div>
+            <label htmlFor="category">Categorias</label>
+            <select id="category" name="category" onChange={handleChange}>
+              <option value="alquiler-temporal">Alojamientos</option>
+              <option value="tours">Tours</option>
+              <option value="restaurantes">Restaurantes</option>
+            </select>
+          </div>
+          {/* Hacer un listadoo de  checkbox para seleccionar una categoria a la vez y que se guarde en el formData con el nombre category*/}
+        
+
           <Modal.Body>
             <label htmlFor="palabra_clave">Buscar por palabra clave (opcional):</label>
             <input type="search" className="search-field" placeholder="Buscar propiedades..." value={formData.palabra_clave} name="palabra_clave" onChange={handleChange} />
-            <input type="category" className="category" hidden placeholder="Buscar propiedades..." value='alquiler-temporal' name="category" onChange={handleChange} />
 
             <div>
               <label htmlFor="departamento">Selecciona un departamento de cordoba:</label>
@@ -147,7 +169,7 @@ export const ButtonSearch = () => {
               </div>
             )}
 
-            <div className="wrapper">
+        {/*    <div className="wrapper">
               <h4>Rango de precio</h4>
               <div className="price-input">
                 <div className="field">
@@ -160,7 +182,7 @@ export const ButtonSearch = () => {
                   <input type="number" className="input-max" name="precio_max" value={formData.precio_max} min="0" max="10000000" onChange={handleChange} />
                 </div>
               </div>
-            </div>
+            </div>*/}
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>

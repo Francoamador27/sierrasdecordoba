@@ -4,19 +4,27 @@ import 'leaflet/dist/leaflet.css';
 import { Link, useLocation } from 'react-router-dom';
 import { buscarCoordenadasPorDepartamento } from '../utils.js/deptos';
 import customIconUrl from '../../marker/home.png';
-import customIconUrl2 from '../../marker/home2.png';
+import customIconUrl2 from '../../marker/ubicacion.png';
 import L from 'leaflet';
 import { getAllProducts } from '../utils.js/fetchs/getAllProducts';
 import Swal from 'sweetalert2';
 import { url } from '../utils.js/endpoint/endpoint';
 const MapWithMarkers = () => {
+    const [products, setProducts] = useState([]);
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const departamento = queryParams.get('departamento');
     const page = '1';
     const order = queryParams.get('order');
     const ciudad = queryParams.get('ciudad');
-    const category = queryParams.get('category');
+    const categoryList  = location.pathname; 
+    if(categoryList === '/tours'){
+        var category = 'tours';
+    }else if(categoryList === '/restaurantes'){
+        var category = 'restaurantes';
+    } else if(categoryList === '/propiedades'){
+        var category = 'alquiler-temporal';
+    }
     const clave = queryParams.get('palabra_clave');
 
     const [position, setPosision] = useState([-31.2994, -64.4985]);
@@ -24,7 +32,6 @@ const MapWithMarkers = () => {
     useEffect(() => {
         if (departamento) {
             const cordenadas = buscarCoordenadasPorDepartamento(departamento);
-            console.log(cordenadas)
             setPosision(cordenadas)
 
         }
@@ -64,7 +71,6 @@ const MapWithMarkers = () => {
         shadowSize: [41, 41]
     });
 
-    const [products, setProducts] = useState([]);
     const markers = [
         { id: 1, position: [-31.2994, -64.4985], text: 'Marker 1' },
         { id: 2, position: [-31.421082629081614, -424.4961024740947], text: 'Marker 2' },
@@ -125,11 +131,14 @@ const MapWithMarkers = () => {
                 />
                 {products.map(product => (
                     product.location && product.location.lat && product.location.lng && (
-                        <Marker
-                            key={product.id}
-                            position={[parseFloat(product.location.lat), correctLongitude(parseFloat(product.location.lng))]}
-                            icon={customIcon1} // Usa customIcon2 si deseas diferenciarlos
-                        >
+                        
+                            <Marker
+                                key={product.id}
+                                position={[parseFloat(product.location.lat), correctLongitude(parseFloat(product.location.lng))]}
+                                icon={product.category === 'tours' ? customIcon2 : customIcon1} // Usa customIcon2 si deseas diferenciarlos
+                            >
+                            
+                        
                             <Popup>
                                 <div>
                                     <h5 className='title-marker'>{product.title}</h5>

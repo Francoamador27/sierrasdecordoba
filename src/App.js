@@ -6,23 +6,31 @@ import Footer from './componentes/Footer';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useEffect, useState } from 'react';
 import { Rutas } from './componentes/rutas/Rutas';
-import { fetchUbicaciones } from './componentes/utils.js/fetchs/getUbicacion';
+import { fetchUbiAlojamientos, fetchUbiTours } from './componentes/utils.js/fetchs/getUbicacion';
 import { useDispatch, useSelector } from 'react-redux';
 import { setubicaciones } from './redux/ubicacionesSlice';
+import { Loading } from './componentes/Loading';
+import { LoadingHome } from './componentes/Loading/LoadingHome';
+import { setubiTours } from './redux/ubiToursSlice';
 function App() {
   const [favs, setFavs] = useState([]);
   const dispatch = useDispatch();
-  const ubicaciones = useSelector(state => state.ubicaciones);
-
-    useEffect(() => {
-      const fetchData = async () => {
-        const ubicaciones = await fetchUbicaciones();
-        if (ubicaciones) {
-          dispatch(setubicaciones(ubicaciones));
-        }
-      };
-      fetchData();
-    }, []);
+  const [ready, setReady] = useState(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      const ubiAlojamientos = await fetchUbiAlojamientos();
+      const ubicacionesTours = await fetchUbiTours();
+      if (ubiAlojamientos) {
+        dispatch(setubicaciones(ubiAlojamientos));
+        
+        // setReady(false);
+      }
+      if (ubicacionesTours) {
+        dispatch(setubiTours(ubicacionesTours));
+      }
+    };
+    fetchData();
+  }, []);
 
   useEffect(() => {
 
@@ -35,15 +43,20 @@ function App() {
 
   return (
     <>
-      <Header favs={favs} />
-      <div className='principal'>
+      {ready ? (
+        <LoadingHome/>
+      ) : (<>
+        <Header favs={favs} />
+        <div className='principal'>
 
-        <div className='rutas'>
-          <Rutas />
+          <div className='rutas'>
+            <Rutas />
+          </div>
+
         </div>
-
-      </div>
-      <Footer />
+        <Footer />
+      </>
+      )}
     </>
   );
 }

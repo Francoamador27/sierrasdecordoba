@@ -7,16 +7,23 @@ import { getAllProducts } from "./utils.js/fetchs/getAllProducts";
 import { CardSearch } from "./cards/CardsSearch";
 
 const ListadoSearch = React.memo(() => {
+
     const location = useLocation();
     const navigate = useNavigate();
-
+   
+     if(location.pathname === '/tours'){
+        var category = 'tours';
+    }else if(location.pathname === '/restaurantes'){
+        var category = 'restaurantes';
+    } else if(location.pathname === '/propiedades'){
+        var category = 'alquiler-temporal';
+    }
     const queryParams = new URLSearchParams(location.search);
     const page = queryParams.get('page') || '1';
     const order = queryParams.get('order');
     const clave = queryParams.get('palabra_clave');
     const departamento = queryParams.get('departamento');
     const ciudad = queryParams.get('ciudad');
-    const category = queryParams.get('category');
 
     const [products, setProducts] = useState([]);
     const [pagination, setPagination] = useState();

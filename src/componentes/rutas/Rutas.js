@@ -9,6 +9,7 @@ import { CreateGallery } from "../posts/GalleryPost"
 import { Register } from "../Register"
 import { Home } from "../Home"
 import { Users } from "../users/Users"
+import { User } from "../users/User"
 export const Rutas = () => {
   return (
     <Routes>
@@ -19,12 +20,13 @@ export const Rutas = () => {
       <Route path='/details' element={<Details />} />
       <Route path='/myproducts' element={<Myproducts />} />
       <Route path='/propiedades' element={<ListCategory />} />
+      <Route path='/tours' element={<ListCategory />} />
       <Route path='/createproducts' element={<CreateGallery />} />
       <Route path='/galeria' element={<CreateGallery />} />
       <Route path='/editpost' element={<EditsPosts />} />
       <Route path='/register' element={<Register />} />
       <Route path='/users' element={<Users />} />
-      <Route path='/user' element={<Users />} />
+      <Route path='/user' element={<User />} />
     </Routes>
   )
 }

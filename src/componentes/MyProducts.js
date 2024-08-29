@@ -15,12 +15,15 @@ export const Myproducts = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [products , setProducts] = useState()
+  const dataProducts = useSelector(state => state.myproducts)
+  console.log(dataProducts)
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const products = await getMyProducts();
-        if (products) {
-          setProducts(products);
+        const data = await getMyProducts();
+        if (data) {
+          setProducts(data);
+          dispatch(setMyProducts(data))
         } else {
           Swal.fire({
             title: '¡Error!',
@@ -45,7 +48,7 @@ export const Myproducts = () => {
             <MenuAdmin />
               <h2>Tienes acceso. Estas son tus publicaciones</h2>
               <div className="row">
-                {products.map((prop, index) => (
+                {dataProducts.products.map((prop, index) => (
                   <div className='col-12 col-sm-6 col-md-4 col-lg-3 ' key={index}>
                     <MyCards  data={prop} />
                   </div>

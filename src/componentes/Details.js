@@ -91,9 +91,9 @@ function Details() {
 
             <>
               <p className="enlaces-ubicacion"><i className="bi bi-geo"></i>
-                <Link to={`/propiedades?departamento=${dataFilm.ubicacion.departamento.replace(/\s+/g, "")}`}>{dataFilm.ubicacion.departamento}</Link>  /
+                <Link to={`/propiedades?departamento=${dataFilm.ubicacion.departamento}`}>{dataFilm.ubicacion.departamento}</Link>  /
                 {dataFilm.ubicacion.ciudad &&
-                  <Link to={`/propiedades?ciudad=${dataFilm.ubicacion.ciudad.replace(/\s+/g, "-")}`}>{dataFilm.ubicacion.ciudad}</Link>
+                  <Link to={`/propiedades?ciudad=${dataFilm.ubicacion.ciudad}`}>{dataFilm.ubicacion.ciudad}</Link>
 
                 }</p>
             </>

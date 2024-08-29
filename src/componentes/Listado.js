@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { getAllProducts } from "./utils.js/fetchs/getAllProducts";
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
-
+import { CardSearch } from "./cards/CardsSearch";
 function Listado(props) {
   let params = {};
   const [products, setProducts] = useState([]);
@@ -99,8 +99,8 @@ function Listado(props) {
         <div className="row">
           {products.map((oneMovie, index) => (
             <SwiperSlide key={index} className="card-home">
-              <Card data={oneMovie} />
-
+              {/* Linea comentada  <Card data={oneMovie} />  */}
+              <CardSearch data={oneMovie} />
             </SwiperSlide>
           ))}
         </div>
