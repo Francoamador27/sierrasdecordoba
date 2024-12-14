@@ -64,3 +64,9 @@ border-bottom: 1px solid var(--color-primary);
 .cards-show .card {
   max-width: 266px;
 }
+@media(max-width:400px){
+  .swiper-slide.card-home {
+    margin-bottom: 60px;
+    max-width: 375px;
+}
+}
