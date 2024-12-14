@@ -3,14 +3,15 @@ import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 import { addUser } from "../redux/userSlice";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { sanitizeEmail, sanitizePassword } from "./utils.js/sanitize";
 import { url } from "./utils.js/endpoint/endpoint";
 
 export const FormLogin = () => {
   const dispatch = useDispatch();
-  const [captchaToken, setCaptchaToken] = useState(null); // Estado para almacenar el token del captcha
+  const [captchaToken, setCaptchaToken] = useState(null);
+  const reCaptchaRef = useRef(null); // Referencia para reiniciar el reCAPTCHA
 
   const Toast = Swal.mixin({
     toast: true,
@@ -21,7 +22,7 @@ export const FormLogin = () => {
     didOpen: (toast) => {
       toast.onmouseenter = Swal.stopTimer;
       toast.onmouseleave = Swal.resumeTimer;
-    }
+    },
   });
 
   const handleLogin = async (event) => {
@@ -47,7 +48,7 @@ export const FormLogin = () => {
 
       const res = await axios.post(
         `${url}/auth/login`,
-        { email, password, token: captchaToken }, // Incluye el token del captcha
+        { email, password, token: captchaToken },
         { withCredentials: true }
       );
 
@@ -60,12 +61,7 @@ export const FormLogin = () => {
           confirmButtonText: "Aceptar",
         });
       } else {
-        Swal.fire({
-          title: "¡Error!",
-          text: "Usuario o contraseña incorrecta.",
-          icon: "error",
-          confirmButtonText: "Aceptar",
-        });
+        throw new Error("Usuario o contraseña incorrecta.");
       }
     } catch (error) {
       Swal.fire({
@@ -75,6 +71,12 @@ export const FormLogin = () => {
         confirmButtonText: "Aceptar",
       });
       console.error("Error al procesar la solicitud:", error);
+
+      // Reinicia el reCAPTCHA tras un error
+      if (reCaptchaRef.current) {
+        reCaptchaRef.current.reset();
+      }
+      setCaptchaToken(null); // Limpia el estado del token
     }
   };
 
@@ -111,21 +113,25 @@ export const FormLogin = () => {
           </div>
 
           {/* Agregar reCAPTCHA v2 visible */}
-          <ReCAPTCHA
-            sitekey="6LcwvjcqAAAAAKXjL0CHiKhPE_cbMMjI-pXx57yZ" // Reemplaza con tu clave pública
-            onChange={(token) => setCaptchaToken(token)} // Actualiza el token cuando el usuario lo complete
-            onExpired={() => setCaptchaToken(null)} // Maneja el vencimiento del token
-          />
+          <div className="contenedor-recaptcha">
+            <ReCAPTCHA
+              sitekey="6LcwvjcqAAAAAKXjL0CHiKhPE_cbMMjI-pXx57yZ" // Reemplaza con tu clave pública
+              onChange={(token) => setCaptchaToken(token)} // Actualiza el token cuando el usuario lo complete
+              onExpired={() => setCaptchaToken(null)} // Maneja el vencimiento del token
+              ref={reCaptchaRef} // Referencia para reiniciar el captcha
+            />
+
+          </div>
 
           <div className="buttons">
             <button type="submit" className="btn btn-primary btn-form">
               Ingresar
             </button>
 
-            <button type="button" className="btn btn-primary btn-aux">
-              <Link to={"/register"}>Register</Link>
-            </button>
           </div>
+
+          <span>Si no tienes cuenta, puedes crearte una </span>
+          <Link to={"/register"}>aquí</Link>
         </form>
       </div>
     </>
