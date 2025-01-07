@@ -115,7 +115,8 @@ export const FormLogin = () => {
           {/* Agregar reCAPTCHA v2 visible */}
           <div className="contenedor-recaptcha">
             <ReCAPTCHA
-              sitekey="6LcwvjcqAAAAAKXjL0CHiKhPE_cbMMjI-pXx57yZ" // Reemplaza con tu clave pública
+              sitekey="6LcwvjcqAAAAAKXjL0CHiKhPE_cbMMjI-pXx57yZ" // Reemplaza con tu clave pública 6LcwvjcqAAAAAKXjL0CHiKhPE_cbMMjI-pXx57yZ
+
               onChange={(token) => setCaptchaToken(token)} // Actualiza el token cuando el usuario lo complete
               onExpired={() => setCaptchaToken(null)} // Maneja el vencimiento del token
               ref={reCaptchaRef} // Referencia para reiniciar el captcha

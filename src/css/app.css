@@ -1,3 +1,16 @@
+@font-face {
+  font-family: bauhaus;
+  src: url('../../public/assets/fonts/bauhaus-93.ttf') format('truetype');
+  
+  font-weight: normal;
+  font-style: normal;
+}
+h1,
+h2,
+h3{
+font-family: bauhaus;
+}
+
 input:focus,
 select:focus,
 select,

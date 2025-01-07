@@ -26,6 +26,9 @@ export const getAllProducts = async (params) => {
     if (params.ciudad) {
       queryParams += `ciudad=${params.ciudad}&`;
     }
+    if (params.owner) {
+      queryParams += `owner=${params.owner}&`;
+    }
     if (params.order) {
       queryParams += `order=${params.order}&`;
     }

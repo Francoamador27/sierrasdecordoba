@@ -6,10 +6,12 @@ import { useSelector } from 'react-redux';
 import { fetchPutPass } from '../utils.js/fetchs/fetchPutPass';
 import Swal from "sweetalert2";
 
-export function UpdatePassword() {
+export function UpdatePassword(props) {
+  
+  const email =props.email;
+  const id =props.id;
   const [showPassword, setShowPassword] = useState(false);
   const session = useSelector((state) => state.user);
-console.log(session)
   const togglePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
@@ -45,12 +47,12 @@ console.log(session)
   
     // Desactivar botón de envío para prevenir envíos múltiples
     const submitButton = e.target.querySelector('button[type="submit"]');
-    submitButton.disabled = true;
+    // submitButton.disabled = true;
   
     //crear el fecth para actualizar la contraseña
-    const updatePassword = async (newPassword, session, url, submitButton) => {
+    const updatePassword = async () => {
         try {
-          const response = await fetchPutPass(newPassword, session, url, submitButton)
+          const response = await fetchPutPass(newPassword, id,email, url, submitButton)
           const data = await response.json();
 
           if(data){

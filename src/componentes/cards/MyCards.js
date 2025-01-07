@@ -9,7 +9,7 @@ import { url } from "../utils.js/endpoint/endpoint";
 
 export const MyCards = (props) => {
   const [loading, setLoading] = useState(false);
-  
+
   const dispatch = useDispatch();
   function handleDelete(data) {
     Swal.fire({
@@ -60,31 +60,33 @@ export const MyCards = (props) => {
       });
   }
   const { data } = props;
+  console.log(data)
   return (
     <div className={` card-search ${loading ? 'deleting' : ''}  `}>
-        <div className="image-card">
-          <button className="delete-button" onClick={() => handleDelete(data)}><i class="bi bi-trash"></i></button>
-          <img className="img-card-search" src={`${url}/products/${data.thumbnail[0]}`} alt={data.title} />
-        </div>
-        <div className="contenido">
-          <Link to={`/details?id=${data.id}`} className="link">
-            <h5 className="card-title">{data.title > 20 ? `${data.title.slice(0, 20)}...` : data.title}</h5>
-          </Link>
-          <Link to={`/details?id=${data.id}`} className="link link-info">
-            <p className="card-text">${data.price}</p>
-          </Link>
-          <div className="btn-edit-watch">
-
-            <Link to={`/details?id=${data.id}`} className="link ver-info link-info">
-              <p className="btn-search"> Ver Publicacion    </p>
-            </Link>
-            <Link to={`/editpost?id=${data.id}`} className="link link-info">
-              <p className="btn-edit"> Editar    </p>
-            </Link>
-          </div>
-        </div>
-
+      <p className="card-owner">{data.owner}</p>
+      <div className="image-card">
+        <button className="delete-button" onClick={() => handleDelete(data)}><i class="bi bi-trash"></i></button>
+        <img className="img-card-search" src={`${url}/products/${data.thumbnail[0]}`} alt={data.title} />
       </div>
+      <div className="contenido">
+        <Link to={`/details?id=${data.id}`} className="link">
+          <h5 className="card-title">{data.title > 20 ? `${data.title.slice(0, 20)}...` : data.title}</h5>
+        </Link>
+        <Link to={`/details?id=${data.id}`} className="link link-info">
+          <p className="card-text">${data.price}</p>
+        </Link>
+        <div className="btn-edit-watch">
+
+          <Link to={`/details?id=${data.id}`} className="link ver-info link-info">
+            <p className="btn-search"> Ver Publicacion    </p>
+          </Link>
+          <Link to={`/editpost?id=${data.id}`} className="link link-info">
+            <p className="btn-edit"> Editar    </p>
+          </Link>
+        </div>
+      </div>
+
+    </div>
 
 
   )

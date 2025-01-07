@@ -66,6 +66,17 @@ i.bi.bi-trash:hover {
   color: white;
   transition:color 1s ease 0s;
 }
+
+p.card-owner {
+  background: #1414a0;
+  padding: 0px;
+  margin: 00;
+  text-align: center;
+  border-radius: 12px;
+  color: white;
+  padding: 5px;
+  overflow :hidden;
+}
 .delete-button {
   position: absolute;
   top: 10px;
